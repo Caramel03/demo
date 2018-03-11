@@ -3,6 +3,7 @@ package com.demo.controller;
 import com.demo.Utils.ResultUtils;
 import com.demo.entity.Girl;
 import com.demo.entity.Result;
+import com.demo.enums.ResultEnum;
 import com.demo.repository.GirlRepository;
 import com.demo.service.GirlService;
 import org.slf4j.Logger;
@@ -42,7 +43,7 @@ public class GirlController {
     @PostMapping(value = "/girls")
     public Result<Girl> addGirl(@Valid Girl girl, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
-            return ResultUtils.error(1,bindingResult.getFieldError().getDefaultMessage());
+            return ResultUtils.error(ResultEnum.UNKNOW_ERROR);
         }
         girl.setAge(girl.getAge());
         girl.setCupSize(girl.getCupSize());

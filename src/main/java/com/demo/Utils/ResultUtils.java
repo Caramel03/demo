@@ -1,6 +1,7 @@
 package com.demo.Utils;
 
 import com.demo.entity.Result;
+import com.demo.enums.ResultEnum;
 
 /**
  * @author yami fang
@@ -19,10 +20,10 @@ public class ResultUtils {
         return success(null);
     }
 
-    public static Result error(Integer code,String msg){
+    public static Result error(ResultEnum resultEnum){
         Result result = new Result();
-        result.setCode(code);
-        result.setMsg(msg);
+        result.setCode(resultEnum.getCode());
+        result.setMsg(resultEnum.getMsg());
         return result;
     }
 }
