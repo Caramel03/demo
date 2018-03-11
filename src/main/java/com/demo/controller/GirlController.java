@@ -1,10 +1,10 @@
 package com.demo.controller;
 
 import com.demo.Utils.ResultUtils;
-import com.demo.aspect.HttpAspect;
 import com.demo.entity.Girl;
 import com.demo.entity.Result;
 import com.demo.repository.GirlRepository;
+import com.demo.service.GirlService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,9 @@ public class GirlController {
 
     @Autowired
     GirlRepository girlRepository;
+
+    @Autowired
+    GirlService girlService;
 
     private final static Logger logger = LoggerFactory.getLogger(GirlController.class);
 
@@ -91,4 +94,11 @@ public class GirlController {
     public List<Girl> getGirlsByAge(@PathVariable("age")int age){
         return girlRepository.findByAge(age);
     }
+
+
+    @GetMapping(value = "/girls/getAge/{id}")
+    public void getGirlsAge(@PathVariable("id")Integer id){
+        girlService.getAge(id);
+    }
+
 }
