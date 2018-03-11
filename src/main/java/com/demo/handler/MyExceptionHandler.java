@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
+ *  统一异常处理
  * @author yami fang
  * @since 19:20 2018/3/11
  */
